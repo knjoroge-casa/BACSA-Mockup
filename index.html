@@ -85,7 +85,10 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #042D62 0%, #063a7a 100%);
+            background: linear-gradient(135deg, rgba(4, 45, 98, 0.85) 0%, rgba(6, 58, 122, 0.85) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800"><rect fill="%23042D62" width="1920" height="800"/><text x="50%" y="50%" fill="%23ffffff" opacity="0.1" font-size="120" text-anchor="middle" font-family="sans-serif">HERO IMAGE</text></svg>');
+            background-size: cover;
+            background-position: center;
             color: #FFFFFF;
             padding: 120px 40px;
             text-align: center;
@@ -224,6 +227,12 @@
             transition: all 0.3s;
         }
         
+        .pillar-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 24px;
+        }
+        
         .pillar-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.1);
@@ -258,15 +267,10 @@
             position: relative;
         }
         
-        .function-number {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-family: 'Libre Baskerville', serif;
-            font-size: 48px;
-            color: #042D62;
-            opacity: 0.1;
-            font-weight: 700;
+        .function-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
         }
         
         .function-card h3 {
@@ -296,11 +300,26 @@
         .badge {
             background: #042D62;
             color: #FFFFFF;
-            padding: 24px;
+            padding: 32px 24px;
             text-align: center;
             border-radius: 2px;
             font-weight: 600;
             font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+        
+        .badge:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(4, 45, 98, 0.2);
+        }
+        
+        .badge-icon {
+            width: 40px;
+            height: 40px;
         }
         
         .metrics-grid {
@@ -331,6 +350,30 @@
             background: #042D62;
             color: #FFFFFF;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .leadership::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, rgba(0, 245, 212, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(0, 245, 212, 0.05) 87.5%, rgba(0, 245, 212, 0.05)),
+                linear-gradient(150deg, rgba(0, 245, 212, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(0, 245, 212, 0.05) 87.5%, rgba(0, 245, 212, 0.05)),
+                linear-gradient(30deg, rgba(0, 245, 212, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(0, 245, 212, 0.05) 87.5%, rgba(0, 245, 212, 0.05)),
+                linear-gradient(150deg, rgba(0, 245, 212, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(0, 245, 212, 0.05) 87.5%, rgba(0, 245, 212, 0.05));
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+            z-index: 0;
+        }
+        
+        .leadership .container {
+            position: relative;
+            z-index: 1;
         }
         
         .leadership h2 {
@@ -346,6 +389,22 @@
         }
         
         .btn-link {
+            color: #042D62;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            border-bottom: 2px solid #042D62;
+            padding-bottom: 4px;
+            transition: all 0.3s;
+        }
+        
+        .btn-link:hover {
+            color: #00F5D4;
+            border-color: #00F5D4;
+        }
+        
+        .btn-link-light {
             color: #00F5D4;
             font-weight: 600;
             font-size: 16px;
@@ -356,7 +415,7 @@
             transition: all 0.3s;
         }
         
-        .btn-link:hover {
+        .btn-link-light:hover {
             color: #FFFFFF;
             border-color: #FFFFFF;
         }
@@ -386,7 +445,7 @@
         }
         
         .update-date {
-            color: #00F5D4;
+            color: #042D62;
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 12px;
@@ -451,6 +510,23 @@
             text-align: center;
         }
         
+        .footer-nav {
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            margin: 0 12px;
+        }
+        
+        .footer-nav a:hover {
+            opacity: 1;
+        }
+        
         footer p {
             font-size: 14px;
             opacity: 0.8;
@@ -496,7 +572,7 @@
                 <a href="#work">Our Work</a>
                 <a href="#knowledge">Knowledge Hub</a>
                 <a href="#contact">Contact</a>
-                <a href="#donate" class="btn-donate">Donate</a>
+                <a href="#donate" class="btn-donate">Support Our Mission</a>
             </div>
         </nav>
     </header>
@@ -527,18 +603,35 @@
     <section class="pillars">
         <div class="container">
             <div class="section-header">
-                <h2>Three Strategic Pillars</h2>
+                <h2>Where We Focus</h2>
             </div>
             <div class="pillars-grid">
                 <div class="pillar-card">
+                    <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 8L8 20V36C8 47.046 18.954 56 32 56C45.046 56 56 47.046 56 36V20L32 8Z" fill="#042D62"/>
+                        <path d="M24 28H40V48H24V28Z" fill="#00F5D4"/>
+                    </svg>
                     <h3>Rule of Law</h3>
                     <p>Supporting judicial and law enforcement institutions to function effectively and independently.</p>
                 </div>
                 <div class="pillar-card">
+                    <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="32" r="24" fill="#042D62"/>
+                        <path d="M32 16V32L40 40" stroke="#00F5D4" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="20" cy="20" r="4" fill="#00F5D4"/>
+                        <circle cx="44" cy="20" r="4" fill="#00F5D4"/>
+                        <circle cx="44" cy="44" r="4" fill="#00F5D4"/>
+                        <circle cx="20" cy="44" r="4" fill="#00F5D4"/>
+                    </svg>
                     <h3>Illicit Economy and Organised Crime</h3>
                     <p>Targeting the systems and networks that enable corruption, extortion, and criminal enterprise.</p>
                 </div>
                 <div class="pillar-card">
+                    <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="24" r="8" fill="#00F5D4"/>
+                        <path d="M32 32V48M24 40L32 48L40 40M16 32H48" stroke="#042D62" stroke-width="3" stroke-linecap="round"/>
+                        <rect x="20" y="12" width="24" height="4" fill="#042D62"/>
+                    </svg>
                     <h3>Innovation and Incubation</h3>
                     <p>Deploying technology and new approaches where traditional methods fall short.</p>
                 </div>
@@ -550,36 +643,63 @@
     <section class="how-we-work">
         <div class="container">
             <div class="section-header">
-                <h2>Six Core Functions</h2>
+                <h2>How We Work</h2>
             </div>
             <div class="functions-grid">
                 <div class="function-card">
-                    <span class="function-number">1</span>
+                    <svg class="function-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="16" width="32" height="24" fill="#042D62"/>
+                        <rect x="12" y="8" width="24" height="8" fill="#00F5D4"/>
+                        <circle cx="16" cy="24" r="2" fill="#00F5D4"/>
+                        <circle cx="24" cy="24" r="2" fill="#00F5D4"/>
+                        <circle cx="32" cy="24" r="2" fill="#00F5D4"/>
+                    </svg>
                     <h3>Strategic Platform</h3>
                     <p>A stable, professional channel for private sector expertise to support rule-of-law strengthening.</p>
                 </div>
                 <div class="function-card">
-                    <span class="function-number">2</span>
+                    <svg class="function-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="16" fill="#042D62"/>
+                        <circle cx="24" cy="24" r="10" fill="#00F5D4"/>
+                        <path d="M24 14L26 22L34 24L26 26L24 34L22 26L14 24L22 22L24 14Z" fill="#042D62"/>
+                    </svg>
                     <h3>Intelligence & Insight</h3>
                     <p>Translating complex institutional developments into clear guidance for business leaders and investors.</p>
                 </div>
                 <div class="function-card">
-                    <span class="function-number">3</span>
+                    <svg class="function-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="6" fill="#00F5D4"/>
+                        <circle cx="36" cy="12" r="6" fill="#00F5D4"/>
+                        <circle cx="24" cy="36" r="6" fill="#00F5D4"/>
+                        <path d="M12 12L24 36M36 12L24 36" stroke="#042D62" stroke-width="2"/>
+                    </svg>
                     <h3>Technology Coordination</h3>
                     <p>Deploying AI, data analytics, and digital forensics capabilities to support law enforcement.</p>
                 </div>
                 <div class="function-card">
-                    <span class="function-number">4</span>
+                    <svg class="function-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="8" width="16" height="16" rx="2" fill="#042D62"/>
+                        <rect x="24" y="8" width="16" height="16" rx="2" fill="#00F5D4"/>
+                        <rect x="8" y="24" width="16" height="16" rx="2" fill="#00F5D4"/>
+                        <rect x="24" y="24" width="16" height="16" rx="2" fill="#042D62"/>
+                    </svg>
                     <h3>Alignment & Integration</h3>
                     <p>Directing resources and expertise to identified systemic weaknesses and national priorities.</p>
                 </div>
                 <div class="function-card">
-                    <span class="function-number">5</span>
+                    <svg class="function-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 8L8 16V32C8 38.627 15.163 44 24 44C32.837 44 40 38.627 40 32V16L24 8Z" fill="#042D62"/>
+                        <path d="M20 24L22 26L28 20" stroke="#00F5D4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                     <h3>Clear Boundaries</h3>
                     <p>Helping institutions operate more effectively without crossing into prosecution or enforcement decision-making.</p>
                 </div>
                 <div class="function-card">
-                    <span class="function-number">6</span>
+                    <svg class="function-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="16" fill="#042D62"/>
+                        <circle cx="24" cy="24" r="4" fill="#00F5D4"/>
+                        <path d="M24 8V16M24 32V40M8 24H16M32 24H40" stroke="#00F5D4" stroke-width="2"/>
+                    </svg>
                     <h3>Delivery Discipline</h3>
                     <p>Measurable outcomes, defined timelines, and Board-level oversight on every initiative.</p>
                 </div>
@@ -591,13 +711,44 @@
     <section class="impact">
         <div class="container">
             <div class="section-header">
-                <h2>Capability at Scale</h2>
+                <h2>Impact & Reach</h2>
             </div>
             <div class="capability-badges">
-                <div class="badge">Data & Intelligence</div>
-                <div class="badge">Expert Deployment</div>
-                <div class="badge">Technology Coordination</div>
-                <div class="badge">International Networks</div>
+                <div class="badge">
+                    <svg class="badge-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4L4 12V24C4 30.627 11.163 36 20 36C28.837 36 36 30.627 36 24V12L20 4Z" fill="#00F5D4"/>
+                        <circle cx="20" cy="20" r="6" fill="#042D62"/>
+                    </svg>
+                    <span>Data & Intelligence</span>
+                </div>
+                <div class="badge">
+                    <svg class="badge-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="12" r="6" fill="#00F5D4"/>
+                        <path d="M12 28C12 23.582 15.582 20 20 20C24.418 20 28 23.582 28 28V32H12V28Z" fill="#00F5D4"/>
+                    </svg>
+                    <span>Expert Deployment</span>
+                </div>
+                <div class="badge">
+                    <svg class="badge-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="4" fill="#00F5D4"/>
+                        <circle cx="32" cy="8" r="4" fill="#00F5D4"/>
+                        <circle cx="8" cy="32" r="4" fill="#00F5D4"/>
+                        <circle cx="32" cy="32" r="4" fill="#00F5D4"/>
+                        <circle cx="20" cy="20" r="4" fill="#00F5D4"/>
+                        <path d="M8 8L20 20M32 8L20 20M8 32L20 20M32 32L20 20" stroke="#00F5D4" stroke-width="2"/>
+                    </svg>
+                    <span>Technology Coordination</span>
+                </div>
+                <div class="badge">
+                    <svg class="badge-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="16" stroke="#00F5D4" stroke-width="2" fill="none"/>
+                        <circle cx="20" cy="8" r="4" fill="#00F5D4"/>
+                        <circle cx="32" cy="20" r="4" fill="#00F5D4"/>
+                        <circle cx="20" cy="32" r="4" fill="#00F5D4"/>
+                        <circle cx="8" cy="20" r="4" fill="#00F5D4"/>
+                    </svg>
+                    <span>International Networks</span>
+                </div>
             </div>
             <div class="metrics-grid">
                 <div class="metric">
@@ -625,7 +776,7 @@
         <div class="container">
             <h2>Led by South Africa's Business and Legal Leaders</h2>
             <p>BACSA's Board comprises senior executives from leading South African companies and distinguished figures in law, finance, and national security. Their expertise and networks enable coordinated action at the highest levels.</p>
-            <a href="#board" class="btn-link">View Full Board →</a>
+            <a href="#board" class="btn-link-light">View Full Board →</a>
         </div>
     </section>
 
@@ -681,6 +832,11 @@
 
     <!-- Footer -->
     <footer>
+        <div class="footer-nav">
+            <a href="#privacy">Privacy Policy</a> | 
+            <a href="#terms">Terms of Use</a> | 
+            <a href="#sitemap">Sitemap</a>
+        </div>
         <p>&copy; 2026 Business Against Crime South Africa. All rights reserved.</p>
     </footer>
 </body>
