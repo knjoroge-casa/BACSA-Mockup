@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACSA - Business Against Crime South Africa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #FFFFFF;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Header */
+        header {
+            background: #FFFFFF;
+            padding: 20px 0;
+            border-bottom: 1px solid #E5E5E5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #042D62;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #042D62;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #00F5D4;
+        }
+        
+        .btn-donate {
+            background: #00F5D4;
+            color: #042D62;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-donate:hover {
+            background: #042D62;
+            color: #FFFFFF;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #042D62 0%, #063a7a 100%);
+            color: #FFFFFF;
+            padding: 120px 40px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 24px;
+            color: #FFFFFF;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #00F5D4;
+            color: #042D62;
+            padding: 16px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            padding: 16px 32px;
+            border: 2px solid #FFFFFF;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background: #FFFFFF;
+            color: #042D62;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 42px;
+            color: #042D62;
+            margin-bottom: 20px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #4a4a4a;
+        }
+        
+        /* What We Do */
+        .what-we-do {
+            background: #FFFFFF;
+        }
+        
+        .what-we-do-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .what-we-do-content h2 {
+            font-size: 42px;
+            color: #042D62;
+            margin-bottom: 32px;
+        }
+        
+        .what-we-do-content p {
+            font-size: 18px;
+            color: #4a4a4a;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        /* Pillars */
+        .pillars {
+            background: #F8F8F8;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .pillar-card {
+            background: #FFFFFF;
+            padding: 48px 32px;
+            border-radius: 2px;
+            border-left: 4px solid #00F5D4;
+            transition: all 0.3s;
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .pillar-card h3 {
+            font-size: 24px;
+            color: #042D62;
+            margin-bottom: 16px;
+        }
+        
+        .pillar-card p {
+            color: #4a4a4a;
+            font-size: 16px;
+        }
+        
+        /* How We Work */
+        .how-we-work {
+            background: #FFFFFF;
+        }
+        
+        .functions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .function-card {
+            background: #E5E5E5;
+            padding: 32px;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .function-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 48px;
+            color: #042D62;
+            opacity: 0.1;
+            font-weight: 700;
+        }
+        
+        .function-card h3 {
+            font-size: 20px;
+            color: #042D62;
+            margin-bottom: 12px;
+        }
+        
+        .function-card p {
+            color: #4a4a4a;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        /* Impact Section */
+        .impact {
+            background: #F8F8F8;
+        }
+        
+        .capability-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        
+        .badge {
+            background: #042D62;
+            color: #FFFFFF;
+            padding: 24px;
+            text-align: center;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .metric {
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 48px;
+            color: #00F5D4;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .metric-label {
+            color: #4a4a4a;
+            font-size: 15px;
+        }
+        
+        /* Leadership */
+        .leadership {
+            background: #042D62;
+            color: #FFFFFF;
+            text-align: center;
+        }
+        
+        .leadership h2 {
+            color: #FFFFFF;
+            margin-bottom: 24px;
+        }
+        
+        .leadership p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 32px;
+            opacity: 0.95;
+        }
+        
+        .btn-link {
+            color: #00F5D4;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            border-bottom: 2px solid #00F5D4;
+            padding-bottom: 4px;
+            transition: all 0.3s;
+        }
+        
+        .btn-link:hover {
+            color: #FFFFFF;
+            border-color: #FFFFFF;
+        }
+        
+        /* Latest Updates */
+        .updates {
+            background: #E5E5E5;
+        }
+        
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+        
+        .update-card {
+            background: #FFFFFF;
+            padding: 32px;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        .update-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .update-date {
+            color: #00F5D4;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .update-card h3 {
+            font-size: 20px;
+            color: #042D62;
+            margin-bottom: 12px;
+        }
+        
+        .update-card p {
+            color: #4a4a4a;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+        
+        .update-card a {
+            color: #042D62;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .update-card a:hover {
+            color: #00F5D4;
+        }
+        
+        .view-all {
+            text-align: center;
+        }
+        
+        /* Get Involved */
+        .get-involved {
+            background: #042D62;
+            color: #FFFFFF;
+        }
+        
+        .involvement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
+        }
+        
+        .involvement-option h3 {
+            font-size: 28px;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+        
+        .involvement-option p {
+            font-size: 16px;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #FFFFFF;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-header h2 {
+                font-size: 32px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+            
+            .functions-grid,
+            .pillars-grid,
+            .involvement-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">BACSA</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#work">Our Work</a>
+                <a href="#knowledge">Knowledge Hub</a>
+                <a href="#contact">Contact</a>
+                <a href="#donate" class="btn-donate">Donate</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Private Sector Expertise. Public Good.</h1>
+            <p>BACSA brings together business leaders, technology experts, and law enforcement to tackle organised crime and corruption at a systems level.</p>
+            <div class="hero-ctas">
+                <a href="#partner" class="btn-primary">Become a Partner</a>
+                <a href="#support" class="btn-secondary">Support This Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="what-we-do">
+        <div class="container">
+            <div class="what-we-do-content">
+                <h2>Connecting Capability with National Priorities</h2>
+                <p>South Africa faces sophisticated organised crime networks that exploit systemic weaknesses. BACSA connects private sector capability with government priorities—providing coordination, technology, and expertise where they're needed most.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Pillars -->
+    <section class="pillars">
+        <div class="container">
+            <div class="section-header">
+                <h2>Three Strategic Pillars</h2>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <h3>Rule of Law</h3>
+                    <p>Supporting judicial and law enforcement institutions to function effectively and independently.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>Illicit Economy and Organised Crime</h3>
+                    <p>Targeting the systems and networks that enable corruption, extortion, and criminal enterprise.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>Innovation and Incubation</h3>
+                    <p>Deploying technology and new approaches where traditional methods fall short.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work -->
+    <section class="how-we-work">
+        <div class="container">
+            <div class="section-header">
+                <h2>Six Core Functions</h2>
+            </div>
+            <div class="functions-grid">
+                <div class="function-card">
+                    <span class="function-number">1</span>
+                    <h3>Strategic Platform</h3>
+                    <p>A stable, professional channel for private sector expertise to support rule-of-law strengthening.</p>
+                </div>
+                <div class="function-card">
+                    <span class="function-number">2</span>
+                    <h3>Intelligence & Insight</h3>
+                    <p>Translating complex institutional developments into clear guidance for business leaders and investors.</p>
+                </div>
+                <div class="function-card">
+                    <span class="function-number">3</span>
+                    <h3>Technology Coordination</h3>
+                    <p>Deploying AI, data analytics, and digital forensics capabilities to support law enforcement.</p>
+                </div>
+                <div class="function-card">
+                    <span class="function-number">4</span>
+                    <h3>Alignment & Integration</h3>
+                    <p>Directing resources and expertise to identified systemic weaknesses and national priorities.</p>
+                </div>
+                <div class="function-card">
+                    <span class="function-number">5</span>
+                    <h3>Clear Boundaries</h3>
+                    <p>Helping institutions operate more effectively without crossing into prosecution or enforcement decision-making.</p>
+                </div>
+                <div class="function-card">
+                    <span class="function-number">6</span>
+                    <h3>Delivery Discipline</h3>
+                    <p>Measurable outcomes, defined timelines, and Board-level oversight on every initiative.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Reach -->
+    <section class="impact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Capability at Scale</h2>
+            </div>
+            <div class="capability-badges">
+                <div class="badge">Data & Intelligence</div>
+                <div class="badge">Expert Deployment</div>
+                <div class="badge">Technology Coordination</div>
+                <div class="badge">International Networks</div>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div class="metric-value">R[X]M</div>
+                    <div class="metric-label">Coordinated capability deployment annually</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">[X]</div>
+                    <div class="metric-label">Active public-private partnerships</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">[X]</div>
+                    <div class="metric-label">CEOs and business leaders on platform</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">[X]</div>
+                    <div class="metric-label">Provinces with active operations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="leadership">
+        <div class="container">
+            <h2>Led by South Africa's Business and Legal Leaders</h2>
+            <p>BACSA's Board comprises senior executives from leading South African companies and distinguished figures in law, finance, and national security. Their expertise and networks enable coordinated action at the highest levels.</p>
+            <a href="#board" class="btn-link">View Full Board →</a>
+        </div>
+    </section>
+
+    <!-- Latest Updates -->
+    <section class="updates">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recent Developments</h2>
+            </div>
+            <div class="updates-grid">
+                <div class="update-card">
+                    <div class="update-date">January 2026</div>
+                    <h3>New AI Analytics Partnership Announced</h3>
+                    <p>BACSA launches collaboration with leading technology firms to deploy advanced analytics in support of organised crime investigations.</p>
+                    <a href="#">Read More →</a>
+                </div>
+                <div class="update-card">
+                    <div class="update-date">December 2025</div>
+                    <h3>Annual Impact Report Released</h3>
+                    <p>2025 results show significant progress in rule-of-law strengthening initiatives across multiple provinces.</p>
+                    <a href="#">Read More →</a>
+                </div>
+                <div class="update-card">
+                    <div class="update-date">November 2025</div>
+                    <h3>Infrastructure Theft Prevention Initiative Expands</h3>
+                    <p>Strategic coordination with rail and energy sectors demonstrates measurable reduction in critical infrastructure crime.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="#knowledge" class="btn-link">View Knowledge Hub →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved -->
+    <section class="get-involved">
+        <div class="container">
+            <div class="involvement-grid">
+                <div class="involvement-option">
+                    <h3>Partner With BACSA</h3>
+                    <p>Deploy your expertise, technology, or resources where they'll have national impact.</p>
+                    <a href="#partner" class="btn-primary">Explore Partnership</a>
+                </div>
+                <div class="involvement-option">
+                    <h3>Support Our Work</h3>
+                    <p>Membership fees and project funding keep BACSA independent and effective.</p>
+                    <a href="#support" class="btn-primary">Learn About Funding</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Business Against Crime South Africa. All rights reserved.</p>
+    </footer>
+</body>
+</html>
