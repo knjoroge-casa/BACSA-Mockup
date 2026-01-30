@@ -100,6 +100,7 @@
             background: #2a2b5d;
             color: #FFFFFF;
             padding: 100px 40px;
+            position: relative; 
         }
         
         .hero-content {
@@ -173,7 +174,39 @@
     background: linear-gradient(135deg, #004aad 0%, #5de0e6 100%);
     color: #FFFFFF;
 }
-        
+/* Scroll Down Arrow */
+.scroll-arrow {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow svg {
+    width: 40px;
+    height: 40px;
+    fill: #FFFFFF;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.scroll-arrow:hover svg {
+    opacity: 1;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}        
         /* Section Styles */
         section {
             padding: 80px 40px;
@@ -651,6 +684,14 @@
                 <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop" alt="BACSA collaboration" class="hero-image">
             </div>
         </div>
+        </div>
+    </div>
+    <a href="#what-we-do" class="scroll-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" transform="rotate(90 12 12)"/>
+        </svg>
+    </a>
+
     </section>
 
     <!-- What We Do -->
@@ -781,8 +822,9 @@
     <section class="impact">
         <div class="container">
             <div class="section-header">
-                <h2>How We Work</h2>
-            </div>
+    <h2>How We Work</h2>
+    <p>At BACSA, we employ a collaborative and results-driven approach to deliver meaningful change. The following principles guide our work:</p>
+</div>
             <div class="capability-badges">
                 <div class="badge">
                     <svg class="badge-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
