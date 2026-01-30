@@ -203,28 +203,41 @@
         }
         
         /* What We Do */
-        .what-we-do {
-            background: linear-gradient(135deg, #ffffff 0%, #e3eaf3 100%);
-        }
-        
-        .what-we-do-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .what-we-do-content h2 {
-            font-size: 42px;
-            color: #161584;
-            margin-bottom: 32px;
-        }
-        
-        .what-we-do-content p {
-            font-size: 18px;
-            color: #4a4a4a;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
+.what-we-do {
+    background: linear-gradient(135deg, #ffffff 0%, #e3eaf3 100%);
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.principle-card {
+    background: #FFFFFF;
+    padding: 40px 32px;
+    border-radius: 2px;
+    border-left: 4px solid #0077B6;
+    transition: all 0.3s;
+}
+
+.principle-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.principle-card h3 {
+    font-size: 22px;
+    color: #161584;
+    margin-bottom: 16px;
+}
+
+.principle-card p {
+    color: #4a4a4a;
+    font-size: 16px;
+    line-height: 1.7;
+}
         
         /* Pillars */
         .pillars {
@@ -641,14 +654,28 @@
     </section>
 
     <!-- What We Do -->
-    <section class="what-we-do">
-        <div class="container">
-            <div class="what-we-do-content">
-                <h2>Connecting Capability with National Priorities</h2>
-                <p>South Africa faces sophisticated organised crime networks that exploit systemic weaknesses. BACSA connects private sector capability with government priorities—providing coordination, technology, and expertise where they're needed most.</p>
+<section class="what-we-do" id="what-we-do">
+    <div class="container">
+        <div class="section-header">
+            <h2>Disciplined Execution. Measurable Impact.</h2>
+            <p>BACSA is a specialised non-profit organisation working at the intersection of business expertise and state authority to advance rule-of-law solutions.</p>
+        </div>
+        <div class="principles-grid">
+            <div class="principle-card">
+                <h3>Government-Led Demand</h3>
+                <p>We act only in response to clear, authorised requests from the State.</p>
+            </div>
+            <div class="principle-card">
+                <h3>An Enabling Platform</h3>
+                <p>We equip, capacitate and enable those who investigate and prosecute.</p>
+            </div>
+            <div class="principle-card">
+                <h3>Radical Transparency</h3>
+                <p>We are accountable for results, ensuring that our contribution translates into tangible system improvements.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Two Pillars -->
     <section class="pillars">
@@ -685,8 +712,9 @@
     <section class="how-we-work">
         <div class="container">
             <div class="section-header">
-                <h2>How We Work</h2>
-            </div>
+    <h2>How We Work</h2>
+    <p>At BACSA, we employ a collaborative and results-driven approach to deliver meaningful change. The following principles guide our work:</p>
+</div>
             <div class="functions-grid">
                 <div class="function-card">
                     <svg class="function-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
