@@ -241,16 +241,50 @@
     background: linear-gradient(135deg, #ffffff 0%, #e3eaf3 100%);
 }
 
-.principles-grid {
+.what-we-do-layout {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    margin-top: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.what-we-do-left h2 {
+    font-size: 42px;
+    color: #161584;
+    margin-bottom: 32px;
+}
+
+.what-we-do-image {
+    margin-bottom: 24px;
+}
+
+.what-we-do-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.what-we-do-left p {
+    font-size: 18px;
+    color: #4a4a4a;
+    line-height: 1.8;
+}
+
+.what-we-do-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.principles-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .principle-card {
     background: #FFFFFF;
-    padding: 40px 32px;
+    padding: 32px 28px;
     border-radius: 2px;
     border-left: 4px solid #0077B6;
     transition: all 0.3s;
@@ -262,15 +296,23 @@
 }
 
 .principle-card h3 {
-    font-size: 22px;
+    font-size: 20px;
     color: #161584;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .principle-card p {
     color: #4a4a4a;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .what-we-do-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
         
         /* Pillars */
@@ -694,25 +736,32 @@
 
     </section>
 
-    <!-- What We Do -->
+   <!-- What We Do -->
 <section class="what-we-do" id="what-we-do">
     <div class="container">
-        <div class="section-header">
-            <h2>Disciplined Execution. Measurable Impact.</h2>
-            <p>BACSA is a specialised non-profit organisation working at the intersection of business expertise and state authority to advance rule-of-law solutions.</p>
-        </div>
-        <div class="principles-grid">
-            <div class="principle-card">
-                <h3>Government-Led Demand</h3>
-                <p>We act only in response to clear, authorised requests from the State.</p>
+        <div class="what-we-do-layout">
+            <div class="what-we-do-left">
+                <h2>Disciplined Execution. Measurable Impact.</h2>
+                <div class="what-we-do-image">
+                    <img src="https://via.placeholder.com/500x350/2a2b5d/FFFFFF?text=Image+Placeholder" alt="BACSA Impact">
+                </div>
+                <p>BACSA is a specialised non-profit organisation working at the intersection of business expertise and state authority to advance rule-of-law solutions.</p>
             </div>
-            <div class="principle-card">
-                <h3>An Enabling Platform</h3>
-                <p>We equip, capacitate and enable those who investigate and prosecute.</p>
-            </div>
-            <div class="principle-card">
-                <h3>Radical Transparency</h3>
-                <p>We are accountable for results, ensuring that our contribution translates into tangible system improvements.</p>
+            <div class="what-we-do-right">
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <h3>Government-Led Demand</h3>
+                        <p>We act only in response to clear, authorised requests from the State.</p>
+                    </div>
+                    <div class="principle-card">
+                        <h3>An Enabling Platform</h3>
+                        <p>We equip, capacitate and enable those who investigate and prosecute.</p>
+                    </div>
+                    <div class="principle-card">
+                        <h3>Radical Transparency</h3>
+                        <p>We are accountable for results, ensuring that our contribution translates into tangible system improvements.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
