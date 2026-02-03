@@ -245,61 +245,77 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: start;
+    align-items: stretch;
 }
 
-.what-we-do-left h2 {
-    font-size: 42px;
-    color: #161584;
-    margin-bottom: 32px;
+.what-we-do-left {
+    display: flex;
+    align-items: stretch;
 }
 
-.what-we-do-image {
-    margin-bottom: 24px;
-}
-
-.what-we-do-image img {
-    width: 50%;
-    height: auto;
+.what-we-do-image-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     border-radius: 4px;
+    position: relative;
 }
 
-.what-we-do-left p {
-    font-size: 18px;
-    color: #4a4a4a;
-    line-height: 1.8;
+.what-we-do-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.what-we-do-image-container:hover img {
+    transform: scale(1.1);
 }
 
 .what-we-do-right {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 106px;    /* Height of title (42px + 32px margin) + some spacing to align with image top */
+}
+
+.what-we-do-right h2 {
+    font-size: 42px;
+    color: #161584;
+    margin-bottom: 24px;
+}
+
+.what-we-do-description {
+    font-size: 18px;
+    color: #4a4a4a;
+    line-height: 1.8;
+    margin-bottom: 40px;
 }
 
 .principles-grid {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 .principle-card {
     background: #FFFFFF;
-    padding: 32px 28px;
-    border-radius: 2px;
+    padding: 28px 24px;
+    border-radius: 4px;
     border-left: 4px solid #0077B6;
     transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .principle-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    transform: translateX(8px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-left-width: 6px;
 }
 
 .principle-card h3 {
     font-size: 20px;
     color: #161584;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .principle-card p {
@@ -313,6 +329,10 @@
     .what-we-do-layout {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+    
+    .what-we-do-image-container {
+        height: 400px;
     }
 }
         
@@ -742,13 +762,13 @@
     <div class="container">
         <div class="what-we-do-layout">
             <div class="what-we-do-left">
-                <h2>Disciplined Execution. Measurable Impact.</h2>
-                <div class="what-we-do-image">
-                    <img src="https://raw.githubusercontent.com/knjoroge-casa/BACSA-Mockup/main/assets/Execution-Impact.png" alt="BACSA Impact">
+                <div class="what-we-do-image-container">
+                    <img src="https://via.placeholder.com/600x800/2a2b5d/FFFFFF?text=Image+Placeholder" alt="BACSA Impact">
                 </div>
-                <p>BACSA is a specialised non-profit organisation working at the intersection of business expertise and state authority to advance rule-of-law solutions.</p>
             </div>
             <div class="what-we-do-right">
+                <h2>Disciplined Execution. Measurable Impact.</h2>
+                <p class="what-we-do-description">BACSA is a specialised non-profit organisation working at the intersection of business expertise and state authority to advance rule-of-law solutions.</p>
                 <div class="principles-grid">
                     <div class="principle-card">
                         <h3>Government-Led Demand</h3>
